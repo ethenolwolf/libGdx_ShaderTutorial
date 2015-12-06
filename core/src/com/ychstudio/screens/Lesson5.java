@@ -94,6 +94,10 @@ public class Lesson5 implements Screen {
         // first blur pass goes to frameBufferB
         frameBufferB.begin();
         
+        // clear is not necessary as frameBufferA is opaque
+//        Gdx.gl.glClearColor(0.7f, 0.8f, 0.6f, 1.0f);
+//        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        
         // render FBO target A to target B
         fboRegion.setRegion(frameBufferA.getColorBufferTexture());
         batch.draw(fboRegion, 0, 0, 640f, 480f);
