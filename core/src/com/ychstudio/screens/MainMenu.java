@@ -20,7 +20,7 @@ import com.ychstudio.Tutorial;
 public class MainMenu implements Screen {
 
     public enum Lesson {
-        NONE, LESSON_1, LESSON_2, LESSON_3, LESSON_4, LESSON_4B
+        NONE, LESSON_1, LESSON_2, LESSON_3, LESSON_4, LESSON_4B, LESSON_5
     }
 
     private final Tutorial tutorial;
@@ -47,7 +47,7 @@ public class MainMenu implements Screen {
         LabelStyle labelStyle = new LabelStyle(new BitmapFont(), Color.WHITE);
         Label titleLabel = new Label("Shader Tutorial", labelStyle);
 
-        TextButton lesson1Btn = new TextButton("Lesson1", skin);
+        TextButton lesson1Btn = new TextButton("Lesson 1", skin);
         lesson1Btn.addListener(new ClickListener() {
 
             @Override
@@ -57,7 +57,7 @@ public class MainMenu implements Screen {
 
         });
 
-        TextButton lesson2Btn = new TextButton("Lesson2", skin);
+        TextButton lesson2Btn = new TextButton("Lesson 2", skin);
         lesson2Btn.addListener(new ClickListener() {
             
             @Override
@@ -66,7 +66,7 @@ public class MainMenu implements Screen {
             }
         });
         
-        TextButton lesson3Btn = new TextButton("Lesson3", skin);
+        TextButton lesson3Btn = new TextButton("Lesson 3", skin);
         lesson3Btn.addListener(new ClickListener() {
 
             @Override
@@ -76,7 +76,7 @@ public class MainMenu implements Screen {
 
         });
         
-        TextButton lesson4Btn = new TextButton("Lesson4", skin);
+        TextButton lesson4Btn = new TextButton("Lesson 4", skin);
         lesson4Btn.addListener(new ClickListener(){
 
             @Override
@@ -86,12 +86,22 @@ public class MainMenu implements Screen {
             
         });
         
-        TextButton lesson4bBtn = new TextButton("Lesson4B", skin);
+        TextButton lesson4bBtn = new TextButton("Lesson 4B", skin);
         lesson4bBtn.addListener(new ClickListener(){
 
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 nextLesson = Lesson.LESSON_4B;
+            }
+            
+        });
+        
+        TextButton lesson5Btn = new TextButton("Lesson 5", skin);
+        lesson5Btn.addListener(new ClickListener(){
+
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                nextLesson = Lesson.LESSON_5;
             }
             
         });
@@ -110,6 +120,8 @@ public class MainMenu implements Screen {
         table.add(lesson4Btn).padBottom(6f);
         table.row();
         table.add(lesson4bBtn).padBottom(6f);
+        table.row();
+        table.add(lesson5Btn).padBottom(6f);
 
         stage.addActor(table);
         Gdx.input.setInputProcessor(stage);
@@ -137,6 +149,9 @@ public class MainMenu implements Screen {
                 break;
             case LESSON_4B:
                 tutorial.setScreen(new Lesson4B(tutorial));
+                break;
+            case LESSON_5:
+                tutorial.setScreen(new Lesson5(tutorial));
                 break;
             case NONE:
             default:
