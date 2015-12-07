@@ -42,7 +42,6 @@ public class Lesson1 implements Screen {
 //      ShaderProgram.pedantic = false;
 
         lessonStage = new LessonStage(tutorial);
-        Gdx.input.setInputProcessor(lessonStage);
     }
 
     @Override

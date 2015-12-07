@@ -40,6 +40,8 @@ public class LessonStage extends Stage {
         table.add(backBtn);
         
         addActor(table);
+        
+        Gdx.input.setInputProcessor(this);
     }
 
     @Override

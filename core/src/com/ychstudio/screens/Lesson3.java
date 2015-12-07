@@ -48,7 +48,6 @@ public class Lesson3 implements Screen {
         shader.end();
         
         lessonStage = new LessonStage(tutorial);
-        Gdx.input.setInputProcessor(lessonStage);
     }
 
     @Override

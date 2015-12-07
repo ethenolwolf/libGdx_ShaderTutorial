@@ -68,7 +68,6 @@ public class Lesson5 implements Screen {
         fboRegion = new TextureRegion();
 
         lessonStage = new LessonStage(tutorial);
-        Gdx.input.setInputProcessor(lessonStage);        
     }
 
     @Override

@@ -20,7 +20,7 @@ import com.ychstudio.Tutorial;
 public class MainMenu implements Screen {
 
     public enum Lesson {
-        NONE, LESSON_1, LESSON_2, LESSON_3, LESSON_4, LESSON_4B, LESSON_5
+        NONE, LESSON_1, LESSON_2, LESSON_3, LESSON_4, LESSON_4B, LESSON_5, LESSON_6
     }
 
     private final Tutorial tutorial;
@@ -105,6 +105,16 @@ public class MainMenu implements Screen {
             }
             
         });
+        
+        TextButton lesson6Btn = new TextButton("Lesson 6", skin);
+        lesson6Btn.addListener(new ClickListener(){
+
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                nextLesson = Lesson.LESSON_6;
+            }
+            
+        });
 
         Table table = new Table();
         table.setFillParent(true);
@@ -122,6 +132,8 @@ public class MainMenu implements Screen {
         table.add(lesson4bBtn).padBottom(6f);
         table.row();
         table.add(lesson5Btn).padBottom(6f);
+        table.row();
+        table.add(lesson6Btn).padBottom(6f);
 
         stage.addActor(table);
         Gdx.input.setInputProcessor(stage);
@@ -152,6 +164,9 @@ public class MainMenu implements Screen {
                 break;
             case LESSON_5:
                 tutorial.setScreen(new Lesson5(tutorial));
+                break;
+            case LESSON_6:
+                tutorial.setScreen(new Lesson6(tutorial));
                 break;
             case NONE:
             default:

@@ -66,7 +66,6 @@ public class Lesson4B implements Screen {
         Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
         
         lessonStage = new LessonStage(tutorial);
-        Gdx.input.setInputProcessor(lessonStage);
     }
 
     @Override
